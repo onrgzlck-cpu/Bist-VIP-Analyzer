@@ -1,0 +1,8 @@
+pandas
+yfinance
+pandas-ta
+gspread
+oauth2client
+requests
+openai
+beautifulsoup4
