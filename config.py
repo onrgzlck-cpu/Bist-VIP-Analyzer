@@ -1,14 +1,15 @@
 # config.py
 
-# API ANAHTARLARI (GÜVENLİĞİNİZ İÇİN .env DOSYASINA DA TAŞINABİLİR)
-OPENAI_API_KEY = "BURAYA_API_ANAHTARINIZI_YAZIN"
-GOOGLE_SHEET_KEY = "BURAYA_SHEET_ID_YAZIN"
-GOOGLE_CREDENTIALS_FILE = "credentials.json"
+# API ve Bot Ayarları
+TELEGRAM_TOKEN = "BURAYA_BOT_TOKENINIZI_YAZIN"
+TELEGRAM_CHAT_ID = "BURAYA_CHAT_ID_YAZIN"
 
-# AYARLAR
-BIST_TICKER_FILE = "bist_hisseler.txt"
-UPDATE_INTERVAL = 3600  # Saniye cinsinden güncelleme süresi
-LOG_FILE = "system_logs.log"
+# Dosya Yolları
+BIST_LIST_PATH = "data/bist.txt"
+NASDAQ_LIST_PATH = "data/nasdaq.txt"
+CRYPTO_LIST_PATH = "data/crypto.txt"
 
-# PAZAR LİSTELERİ
-MARKETS = ["BIST", "NASDAQ", "CRYPTO"]
+# Analiz Ayarları
+TIMEFRAME = "1d"  # Günlük periyot
+RSI_THRESHOLD_LOW = 40
+RSI_THRESHOLD_HIGH = 70
