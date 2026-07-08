@@ -1,0 +1,11 @@
+# Python geçici dosyaları
+__pycache__/
+*.py[cod]
+
+# Gizli bilgiler (Telegram token gibi)
+.env
+credentials.json
+*.log
+
+# Veri dosyaları (isteğe bağlı)
+data/*.tmp
