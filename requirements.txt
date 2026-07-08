@@ -1,6 +1,6 @@
 pandas
 yfinance
-pandas-ta
 requests
 gspread
 oauth2client
+pandas-ta @ git+https://github.com/twopirllc/pandas-ta.git@master
