@@ -1,0 +1,23 @@
+name: BIST Analiz Botu
+
+on:
+  schedule:
+    - cron: '0 7 * * *' # Bu, UTC saati ile 07:00 (Türkiye saati ile 10:00) anlamına gelir.
+  workflow_dispatch: # Manuel çalıştırmanıza da izin verir
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Bot
+        env:
+          # Token'ları GitHub Settings > Secrets kısmına ekleyeceksiniz
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} 
+        run: python main.py
