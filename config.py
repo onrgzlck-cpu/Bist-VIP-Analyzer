@@ -1,0 +1,14 @@
+# config.py
+
+# API ANAHTARLARI (GÜVENLİĞİNİZ İÇİN .env DOSYASINA DA TAŞINABİLİR)
+OPENAI_API_KEY = "BURAYA_API_ANAHTARINIZI_YAZIN"
+GOOGLE_SHEET_KEY = "BURAYA_SHEET_ID_YAZIN"
+GOOGLE_CREDENTIALS_FILE = "credentials.json"
+
+# AYARLAR
+BIST_TICKER_FILE = "bist_hisseler.txt"
+UPDATE_INTERVAL = 3600  # Saniye cinsinden güncelleme süresi
+LOG_FILE = "system_logs.log"
+
+# PAZAR LİSTELERİ
+MARKETS = ["BIST", "NASDAQ", "CRYPTO"]
