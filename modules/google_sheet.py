@@ -1,16 +1,19 @@
 # modules/google_sheet.py
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-import os
-import sys
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import json
+import tempfile
 import config
 
 def get_sheet_client():
-    """Google Sheets bağlantısını kurar."""
+    # GitHub Secrets'tan gelen veriyi al
+    creds_json = os.environ.get("CREDENTIALS_JSON")
+    
+    # Geçici bir dosya oluştur
+    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as tmp:
+        tmp.write(creds_json)
+        tmp_path = tmp.name
+        
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name(config.GOOGLE_CREDENTIALS_FILE, scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name(tmp_path, scope)
     client = gspread.authorize(creds)
     return client
 
