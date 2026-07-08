@@ -1,5 +1,6 @@
 # main.py
 import logging
+import pandas as pd
 from modules import bist_data, indicators, google_sheet, telegram_notifier
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
@@ -16,12 +17,12 @@ def run_pipeline():
         signal = indicators.generate_signal(df_with_indicators)
         
         current_price = df['Close'].iloc[-1]
-        results.append({
-            # Güvenli RSI okuma
+        
+        # Güvenli RSI okuma
         rsi_raw = df_with_indicators['RSI'].iloc[-1]
         rsi_val = round(float(rsi_raw), 2) if rsi_raw is not None and not pd.isna(rsi_raw) else 0.0
         
-        # Sonuçları listeye ekle
+        # Veriyi listeye ekle
         results.append({
             "Sembol": ticker.replace(".IS", ""),
             "Fiyat": round(float(current_price), 2),
