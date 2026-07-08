@@ -11,7 +11,10 @@ def calculate_indicators(df):
     df['EMA5'] = ta.ema(df['Close'], length=5)
     df['EMA20'] = ta.ema(df['Close'], length=20)
     
+        # İndikatörler hesaplandıktan sonra NaN değerleri 0 ile doldur
+    df = df.fillna(0)
     return df
+
 
 def generate_signal(df):
     # Eğer veri yoksa veya RSI hesaplanamadıysa (NaN ise) hemen çık
